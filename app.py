@@ -40,7 +40,8 @@ from transformers import T5ForConditionalGeneration, T5Tokenizer
 import os
 from huggingface_hub import login
 
-login(token=os.environ["HF_TOKEN"])
+
+login(token=st.secrets["HF_TOKEN"])
 
 # Mapping of label → directory
 MODEL_DIRS = {
