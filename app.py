@@ -37,10 +37,14 @@
 
 import streamlit as st
 from transformers import T5ForConditionalGeneration, T5Tokenizer
+import os
+from huggingface_hub import login
+
+login(token=os.environ["HF_TOKEN"])
 
 # Mapping of label → directory
 MODEL_DIRS = {
-    "Informal to Formal (Default Model)": "ToobiBabe/email_tone_rewrite",
+    "Informal to Formal": "ToobiBabe/email_tone_rewrite",
     "Formal to Informal": "ToobiBabe/formal_informal_rewriter",
     "Informal to Apologetic": "ToobiBabe/apologetic_email_rewriter",
     "Formal to Apologetic": "ToobiBabe/formal_apologetic_rewriter",
